@@ -3,7 +3,7 @@ This glassdoor scraper code is the revised version of Omer Sakarya's code which 
 
 ## How to use:
 Run the 'dataCollection.py' file after specifying the following parameters:
-- keyword: e.g. 'data scientist', 
+- keyword: e.g. 'data scientist' 
 - num_jobs: number of jobs needed for the data set
 - path: path to chromedriver
 - slp_time: sleep time to let browser load data
