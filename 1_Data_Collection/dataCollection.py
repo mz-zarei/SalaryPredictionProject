@@ -4,6 +4,8 @@
 # Created Date: 2 Aug 2022
 # ---------------------------------------------------------------------------
 """Get data from Glassdoor using GlassdoorScraper module"""
+
+# imports
 import GlassdoorScraper as gs
 import pandas as pd
 
