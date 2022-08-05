@@ -1,4 +1,4 @@
-# Data Collectin phase for the salary estimation model
+# 1. Data Collectin phase for the salary estimation model
 This glassdoor scraper code is the revised version of Omer Sakarya's code which works on current version of Glassdoor (Aug 2022). 
 
 ## How to use:
