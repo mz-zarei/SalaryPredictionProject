@@ -14,9 +14,11 @@
     - Linear correlation between features are analysed
     - Pivot tables are developed to get insights
 
-![alt text](https://github.com/mz-zarei/SalaryPredictionProject/blob/EDA/3_EDA/bar.png "Salary by Sector")
-![alt text](https://github.com/mz-zarei/SalaryPredictionProject/blob/EDA/3_EDA/pvTable.png "Salary by Position")
-![alt text](https://github.com/mz-zarei/SalaryPredictionProject/blob/EDA/3_EDA/WC.png "Word cloud of job descriptions")
+<img src="[drawing.jpg](https://github.com/mz-zarei/SalaryPredictionProject/blob/EDA/3_EDA/bar.png)" alt="Salary by Sector" width="100"/>
+
+![alt text](https://github.com/mz-zarei/SalaryPredictionProject/blob/EDA/3_EDA/bar.png | width=100 "Salary by Sector")
+![alt text](https://github.com/mz-zarei/SalaryPredictionProject/blob/EDA/3_EDA/pvTable.png | width=100 "Salary by Position")
+![alt text](https://github.com/mz-zarei/SalaryPredictionProject/blob/EDA/3_EDA/WC.png | width=100 "Word cloud of job descriptions")
 
 4. Model training
 5. Productionizing ML model
