@@ -33,4 +33,7 @@
 - Glassdor web scraper: https://mersakarya.medium.com/selenium-tutorial-scraping-glassdoor-com-in-10-minutes-3d0915c6d905
 - Flask Productionization: https://towardsdatascience.com/productionize-a-machine-learning-model-with-flask-and-heroku-8201260503d2
 
-
+## Code ReUse
+Python Version: 3.7
+Packages: pandas, numpy, sklearn, matplotlib, seaborn, selenium, flask, json, pickle, XGBoost
+For Web Framework Requirements: pip install -r requirements.txt
