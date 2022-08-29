@@ -23,11 +23,14 @@
     - Categorical variable are converted to dummy variables
     - Linear relationship between features and target are analysed
     - Four models are trained, fine-tunned, and evaluated on test set
-        - Random forest and XGboost model performed the best (MAE aof about 8)
+        - Random forest and XGboost model performed the best (MAE of about 8)
 5. Productionizing ML model
+    - A Falsk API endpoint is hosted on a local webserver 
+    - The API endpoint takes in a request with a list of values from a job listing and returns an estimated salary
 
 ## Resources
-- https://www.youtube.com/playlist?list=PL2zq7klxX5ASFejJj80ob9ZAnBHdz5O1t
-- https://mersakarya.medium.com/selenium-tutorial-scraping-glassdoor-com-in-10-minutes-3d0915c6d905
+- Project Youtube: https://www.youtube.com/playlist?list=PL2zq7klxX5ASFejJj80ob9ZAnBHdz5O1t
+- Glassdor web scraper: https://mersakarya.medium.com/selenium-tutorial-scraping-glassdoor-com-in-10-minutes-3d0915c6d905
+- Flask Productionization: https://towardsdatascience.com/productionize-a-machine-learning-model-with-flask-and-heroku-8201260503d2
 
 
