@@ -5,7 +5,7 @@
 # ---------------------------------------------------------------------------
 """ Train/test ML models """
 # imports
-import imp
+#%%
 from time import process_time_ns
 import pandas as pd
 import numpy as np
@@ -67,11 +67,12 @@ for alpha in np.linspace(0.01, 1, num=20):
     alphas.append(alpha)
 
 df_error = pd.DataFrame(list(zip(alphas, scores)), columns=['alpha', 'score'])
-print(df_error[df_error.score == max(df_error.score)])
+# print(df_error[df_error.score == max(df_error.score)])
 
-plt.plot(alphas, scores)
-plt.show()
-
+#%%
+# plt.plot(alphas, scores)
+# plt.show()
+#%%
 # Fit a random forest model
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import cross_val_score, GridSearchCV, RandomizedSearchCV
@@ -80,22 +81,22 @@ RF_model = RandomForestRegressor()
 RF_model_score= np.mean(cross_val_score(RF_model, X_train, y_train, cv=3, scoring='neg_mean_absolute_error'))
 
 ## Grid search for tuning the model hyperparameters
-# Number of trees in random forest
+    # Number of trees in random forest
 n_estimators = [int(x) for x in np.linspace(start = 10, stop = 500, num = 10)]
-# Metric used for criterion
+    # Metric used for criterion
 criterion = ['mse', 'mae']
-# Number of features to consider at every split
+    # Number of features to consider at every split
 max_features = ['auto', 'sqrt', 'log2']
-# Maximum number of levels in tree
+    # Maximum number of levels in tree
 max_depth = [int(x) for x in np.linspace(10, 110, num = 11)]
 max_depth.append(None)
-# Minimum number of samples required to split a node
+    # Minimum number of samples required to split a node
 min_samples_split = [2, 5, 10]
-# Minimum number of samples required at each leaf node
+    # Minimum number of samples required at each leaf node
 min_samples_leaf = [1, 2, 4]
-# Method of selecting samples for training each tree
+    # Method of selecting samples for training each tree
 bootstrap = [True, False]
-# Create the random grid
+    # Create the random grid
 random_grid = {'n_estimators': n_estimators,
                'max_features': max_features,
                'max_depth': max_depth,
@@ -104,14 +105,14 @@ random_grid = {'n_estimators': n_estimators,
                'bootstrap': bootstrap}
 
 
-# Random search of parameters, using 3 fold cross validation, 
-# search across 100 different combinations, and use all available cores
+## Random search of parameters, using 3 fold cross validation, 
+## search across 100 different combinations, and use all available cores
 RF_randomGS = RandomizedSearchCV(estimator = RF_model, 
                                 param_distributions=random_grid, 
                                 n_iter = 100, cv = 3, verbose=2, 
                                 random_state=42, n_jobs = -1, 
                                 scoring='neg_mean_absolute_error')
-# Fit and evaluate the random search model
+## Fit and evaluate the random search model
 RF_randomGS.fit(X_train, y_train)
 RF_model_best = RF_randomGS.best_estimator_
 RF_model_best_score = np.mean(cross_val_score(RF_model_best, X_train, y_train, cv=3, scoring='neg_mean_absolute_error'))
@@ -154,3 +155,16 @@ print(f"MAE on Test data \n \
         Random Forest:     {RF_model_best_test_mae} \n \
         XGBoost model:     {XG_model_best_test_mae}")
 
+# Picking the best model
+import pickle
+pickl = {'model': RF_model_best}
+pickle.dump( pickl, open( 'model_file' + ".p", "wb" ) )
+
+# Load and test the Pickled model
+file_name = "model_file.p"
+with open(file_name, 'rb') as pickled:
+    data = pickle.load(pickled)
+    model = data['model']
+
+input = X_test.iloc[1,:].values.reshape(1,-1)
+print(model.predict(input))
