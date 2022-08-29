@@ -20,6 +20,10 @@
 
 
 4. Model training
+    - Categorical variable are converted to dummy variables
+    - Linear relationship between features and target are analysed
+    - Four models are trained, fine-tunned, and evaluated on test set
+        - Random forest and XGboost model performed the best (MAE aof about 8)
 5. Productionizing ML model
 
 ## Resources
